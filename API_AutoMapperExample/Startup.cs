@@ -1,3 +1,4 @@
+using API_AutoMapperExample.Mappings;
 using API_AutoMapperExample.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,7 +25,7 @@ namespace API_AutoMapperExample
             services.AddSingleton<IUserRepository, UserRepository>();
 
 
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(MappingProfile));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
