@@ -6,5 +6,7 @@ namespace API_AutoMapperExample.Repositories
     public interface IUserRepository
     {
         List<User> GetUsers();
+
+        void Create(User user);
     }
 }

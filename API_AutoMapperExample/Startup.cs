@@ -21,7 +21,7 @@ namespace API_AutoMapperExample
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddSingleton<IUserRepository, UserRepository>();
 
 
             services.AddAutoMapper(typeof(Startup));

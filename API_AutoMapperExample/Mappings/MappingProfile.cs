@@ -7,9 +7,13 @@ namespace API_AutoMapperExample.Mappings
     {
         public MappingProfile()
         {
-            CreateMap<User, UserDTO>()
+            CreateMap<User, UserOutPutDTO>()
                 .ForMember(dest => dest.City,
                     opts => opts.MapFrom(src => src.Address.City)).ReverseMap();
+
+            CreateMap<UserInputDTO, User>().ReverseMap();
+
+            CreateMap<AddressInputDTO, Address>().ReverseMap();
         }
     }
 }

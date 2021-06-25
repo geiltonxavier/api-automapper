@@ -1,4 +1,5 @@
 ﻿using API_AutoMapperExample.DTO;
+using API_AutoMapperExample.Models;
 using API_AutoMapperExample.Repositories;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -18,12 +19,24 @@ namespace API_AutoMapperExample.Controllers
             _userRepository = userRepository;
         }
 
-        [HttpGet]        
-        public ActionResult<List<UserDTO>> Get()
+        [HttpGet]
+        public ActionResult<List<UserOutPutDTO>> Get()
         {
             var users = _userRepository.GetUsers();
 
-            return _mapper.Map<List<UserDTO>>(users);
+            return _mapper.Map<List<UserOutPutDTO>>(users);
+        }
+
+
+        [HttpPost]
+        public ActionResult CreateUser(UserInputDTO userDTO)
+        {
+
+            var user = _mapper.Map<User>(userDTO);
+
+            _userRepository.Create(user);
+
+            return Ok("Sucesso");
         }
     }
 }

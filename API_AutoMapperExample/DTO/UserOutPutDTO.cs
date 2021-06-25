@@ -1,6 +1,6 @@
 ﻿namespace API_AutoMapperExample.DTO
 {
-    public class UserDTO
+    public class UserOutPutDTO
     {
         public string Name { get; set; }
         public string LastName { get; set; }

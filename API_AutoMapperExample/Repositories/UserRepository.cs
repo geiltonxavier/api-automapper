@@ -5,11 +5,9 @@ namespace API_AutoMapperExample.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public List<User> GetUsers()
+        List<User> usersDB = new List<User>()
         {
-            return new List<User>
-            {
-                new User()
+            new User()
                 {
                     Name = "John",
                     LastName = "Due",
@@ -23,8 +21,24 @@ namespace API_AutoMapperExample.Repositories
                         PostalCode = "999999"
                     }
                 }
-            };
+         };
+
+        public UserRepository()
+        {
+
         }
+
+        public List<User> GetUsers()
+        {
+            return usersDB;
+        }
+
+
+        public void Create(User user)
+        {
+            usersDB.Add(user);
+        }
+
     }
 }
 
